@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const uri = process.env.MONGOURI;
+const url = process.env.MONGOURI;
 const connectToMongo = () => {
 
     try {
-        mongoose.connect(uri, {
+        mongoose.connect(url, {
         }).then((data) => console.log(`connected at server:${data.connection.host}`)
         );
     } catch (error) {
