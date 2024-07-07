@@ -4,7 +4,6 @@ const { validationResult } = require('express-validator');
 const User = require('../models/User');
 const SaveNotes = require('../models/SaveNotes');
 const ApiResponse = require('../Utils/ApiResponse');
-const { default: mongoose } = require('mongoose');
 
 
 
