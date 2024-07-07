@@ -1,16 +1,16 @@
 require('dotenv').config();
 const connectToMongo = require('./config/db');
 const express = require('express');
-var cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-
 const app = express();
+const port = 5000;
 app.use(express.json());
 app.use(cookieParser());
 
 const corsOptions = {
-    origin: "https://notebok-frontend.onrender.com",
+    origin: ["http://localhost:3000", "https://notebok-frontend.onrender.com"],
     credentials: true,
 }
 app.use(cors(corsOptions));
@@ -20,3 +20,7 @@ connectToMongo();
 app.use('/api/auth', require('./routes/userRoute'));
 app.use('/api/notes', require('./routes/usernotes'));
 //----------------------available-routes---------------------//
+
+app.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`);
+});
