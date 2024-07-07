@@ -16,6 +16,12 @@ const corsOptions = {
 }
 app.options('*', cors(corsOptions));
 
+app.use((req, res, next) => {
+    console.log(`Received ${req.method} request for ${req.url}`);
+    console.log('Request headers:', req.headers);
+    next();
+});
+
 connectToMongo();
 //----------------------available-routes---------------------//
 app.use('/api/auth', require('./routes/userRoute'));
