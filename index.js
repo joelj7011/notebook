@@ -11,7 +11,8 @@ app.use(cookieParser());
 
 const corsOptions = {
     origin: ["http://localhost:3000", "https://notebok-frontend.onrender.com"],
-    credentials: true,
+     credentials: true,
+    optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions));
 
